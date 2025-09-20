@@ -68,7 +68,7 @@
 
 
 
-<div class="bg-gray-100">
+<div class="bg-gray-100 my-12 rounded-lg">
     <div class="w-full max-w-3xl mx-auto p-8">
         <div class="bg-white p-8 rounded-lg shadow-md border dark:border-gray-700">
             <h1 class="text-2xl font-bold text-gray-800  mb-4">Checkout</h1>
@@ -87,14 +87,34 @@
                     </div>
                 </div>
 
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="email" class="block text-gray-700  mb-1">Email</label>
+                        <input type="text" id="email" class="w-full rounded-lg border py-2 px-3 bg-gray-300  dark:border-none">
+                    </div>
+                    <div>
+                        <label for="tg_id" class="block text-gray-700  mb-1">Telegram ID Number</label>
+                        <input type="text" id="tg_id" class="w-full rounded-lg border py-2 px-3 bg-gray-300  dark:border-none" placeholder="This is NOT your username">
+                        <p>Use this link to get your USER ID: <a href="https://t.me/userinfobot" target="_blank">https://t.me/userinfobot</a></p>
+                    </div>
+                </div>
+
                 <div class="mt-4">
                     <label for="address" class="block text-gray-700  mb-1">Address</label>
                     <input type="text" id="address" class="w-full rounded-lg border py-2 px-3 bg-gray-300  dark:border-none">
                 </div>
 
-                <div class="mt-4">
-                    <label for="city" class="block text-gray-700  mb-1">City</label>
-                    <input type="text" id="city" class="w-full rounded-lg border py-2 px-3 bg-gray-300  dark:border-none">
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="city" class="block text-gray-700  mb-1">City</label>
+                        <input type="text" id="city" class="w-full rounded-lg border py-2 px-3 bg-gray-300  dark:border-none">
+                    </div>
+                    <div>
+                        <label for="country" class="block text-gray-700  mb-1">Country</label>
+                        <select class="w-full rounded-lg border py-2 px-3 bg-gray-300" id="country">
+                            <option>Select country</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 mt-4">

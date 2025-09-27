@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('zip_code');            
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('referral_code')->unique()->nullable();
+            $table->foreignId('referred_by')->nullable()->constrained('users')->onDelete('set null');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

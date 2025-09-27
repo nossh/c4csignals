@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
+use App\Models\Subscription;
+
 
 class User extends Authenticatable
 {
@@ -26,8 +29,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'fname',
+        'lname',
         'email',
+        'tg_id',
+        'address',
+        'city',
+        'country',
+        'state',
+        'zip_code',
         'password',
     ];
 
@@ -64,4 +74,39 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Unique code for referral
+
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            $user->referral_code = strtoupper(Str::random(8));
+            $user->save();
+        });
+    }
+
+
+    // Referral Relationship
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referred_by');
+    }
+
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referred_by');
+    }
+
+    // $user->referrals; // all people they referred
+    // $user->referrer;  // who referred them
+
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
+    }
+
+
+
 }

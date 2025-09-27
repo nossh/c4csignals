@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('subscription', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
+            $table->foreignId('user_id')->index()->constrained()->onDelete('cascade');
+            $table->string('plan_name');
+            $table->string('cycle');
+            $table->integer('price');
+            $table->boolean('payment_status')->default(false);
+            $table->boolean('sub_status')->default(false);
+            $table->integer('expiring_date');
+            $table->timestamps();
         });
     }
 

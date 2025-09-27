@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
+use PragmaRX\Countries\Package\Countries;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -43,6 +44,13 @@ class FortifyServiceProvider extends ServiceProvider
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
+
+
+        // Custom Register Page
+        Fortify::registerView(function () {
+            $countries = Countries::all()->pluck('name.common', 'cca2')->toArray();
+            return view('auth.register', compact('countries'));
         });
     }
 }

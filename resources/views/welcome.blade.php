@@ -1,6 +1,6 @@
 @extends('layouts/header-footer')
 
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
 @section('content')
 
@@ -36,7 +36,7 @@
                             Start Receiving Signals Now
                         </a>
                         <a
-                            class="btn !bg-[#c8cbf984] !text-primary transition-transform duration-[0.3s] hover:scale-x-[1.03]"
+                            class="btn !bg-[#c8cbf984] text-gray-500 transition-transform duration-[0.3s] hover:scale-x-[1.03]"
                             href="https://t.me/cash4coinssignals"
                             target="_blank"
                         >
@@ -49,7 +49,7 @@
                     ></div>
                 </div>
 
-                <div
+                <!-- <div
                     class="flex w-full place-content-center place-items-center overflow-hidden"
                 >
                     <div
@@ -65,14 +65,15 @@
                                     title="vimeo Video Player"
                                     src="https://player.vimeo.com/video/916494914?color&amp;autopause=0&amp;loop=0&amp;muted=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;h=80f10a5420#t="
                                 ></iframe>
-                            <!-- <img
+                            <img
                                 src="./assets/images/dashboard/dashboard.png"
                                 alt="dashboard"
                                 class="h-full w-full object-cover max-lg:object-contain"
-                            /> -->
+                            />
                         </div>
                     </div>
-                </div>
+                </div> -->
+
             </div>
         </section>
 
@@ -478,6 +479,7 @@
                   
                   <a class="planButton" href="{{ route('register', ['plan' => 'plan1', 'cycle' => 'monthly', 'price' => 70]) }}">
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-primary-600 font-medium transition-colors duration-300 hover:bg-primary-50 mb-6">Get Started</button>
+                        <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   
                   <ul class="space-y-4 text-gray-600">
@@ -552,6 +554,7 @@
                   
                   <a class="planButton" href="{{ route('register', ['plan' => 'plan2', 'cycle' => 'monthly', 'price' => 50]) }}">
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-primary-600 font-medium transition-colors duration-300 hover:bg-primary-50 mb-6">Get Started</button>
+                        <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   
                   <ul class="space-y-4 text-gray-600">
@@ -614,6 +617,7 @@
                   
                     <a class="planButton" href="{{ route('register', ['plan' => 'plan3', 'cycle' => 'yearly', 'price' => 100]) }}">
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-primary-600 font-medium transition-colors duration-300 hover:bg-primary-50 mb-6">Get Started</button>
+                        <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   
                   <ul class="space-y-4 text-gray-600">
@@ -727,7 +731,7 @@
                   </div>
                 </div>
                 <div class="text-3xl font-extrabold text-gray-800">$70k +</div>
-                <div class="text-gray-500">In Total Subscriber Profits in July</div>
+                <div class="text-gray-500">In Total Subscriber Profits in August</div>
               </div>
             </div>
           </div>

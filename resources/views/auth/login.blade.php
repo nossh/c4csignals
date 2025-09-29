@@ -58,6 +58,12 @@
                     Login
                 </button>
             </div>
+
+            <div class="block mt-4">
+                <a href="/#pricing">
+                    <span class="ms-2 text-sm text-gray-600">{{ __('Or register') }}</span>
+                </a>
+            </div>
         </form>
         </div>
     </div>

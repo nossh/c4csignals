@@ -4,7 +4,24 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title') ::-:: c4csignals Crypto and Forex Signals</title>
+        <title>@yield('title') ::-:: c4csignals Crypto and Forex Trading Signals</title>
+
+        <meta name="description" content="C4CSignals delivers accurate crypto and forex trading signals with expert strategies, risk management, and real-time market updates. Profit with reliable entry, TP & SL levels today.">
+
+        <meta name="keywords" content="crypto trading signals, forex trading signals, Bitcoin signals, Ethereum signals, forex, crypto forex strategies, profitable trading, risk management, accurate signals, entry and exit trades">
+
+        <meta name="author" content="C4CSignals">
+
+        <meta property="og:title" content="C4CSignals | Accurate Crypto & Forex Trading Signals">
+        <meta property="og:description" content="Join C4CSignals for trusted crypto and forex signals. Get entry zones, TP, SL & leverage recommendations from expert traders.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://c4csignals.com">
+        <meta property="og:image" content="https://c4csignals.com/assets/images/home/c4csignals-banner.png">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="C4CSignals | Crypto & Forex Signals">
+        <meta name="twitter:description" content="Profit smarter with C4CSignals. Expert-level crypto & forex signals with entry, take profit, stop loss & risk management.">
+        <meta name="twitter:image" content="https://c4csignals.com/assets/images/home/c4csignals-banner.png">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -34,8 +51,8 @@
         >
             <a class="h-[50px] w-[50px] p-[4px]" href="">
                 <img
-                    src="./assets/logo/logo1.png"
-                    alt="logo"
+                    src="./assets/logo/c4csignals-logo.png"
+                    alt="cash4coins signals logo"
                     class="object h-full w-full"
                 />
             </a>
@@ -171,7 +188,7 @@
                   <p>123 Business Ave</p>
                   <p>San Francisco, CA 94107</p>
                   <p class="mt-2">Email: <a href="mailto:info@company.com" class="hover:text-white transition">hello@c4csignals.com</a></p>
-                  <p>Phone: <a href="tel:+447775118171" class="hover:text-white transition">+44 (777) 511-8171</a></p>
+                  <p>Phone: <a href="tel:+44772777479" class="hover:text-white transition">+44 (772) 177-7479</a></p>
                 </address>
               </div>
             </div>
@@ -181,7 +198,7 @@
                 @php
                     echo(Date('Y'))
                 @endphp
-              c4csignals. All rights reserved.</p>
+              <a href="/">c4csignals</a>. All rights reserved.</p>
               <div class="flex space-x-6">
                 <a href="#" class="text-gray-500 hover:text-white text-sm transition">Privacy Policy</a>
                 <a href="#" class="text-gray-500 hover:text-white text-sm transition">Terms of Service</a>

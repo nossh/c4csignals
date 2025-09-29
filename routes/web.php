@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubscriptionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,29 @@ Route::get('/how-to-use-crypto-signals', function () {
 Route::get('/how-to-use-forex-signals', function () {
     return view('pages.how-to-use-forex-signals');
 })->name('how-to-use-forex-signals');
+
+
+// For payments
+// Route::get('/payment-response', function () {
+//     return view('pages.payment-response');
+// })->name('payment-response');
+
+Route::get('/checkout/nowpayments/{subscription_id}', [SubscriptionController::class, 'checkout'])
+    ->name('nowpayment.checkout');
+
+Route::post('/nowpayment/callback', [SubscriptionController::class, 'callback'])
+    ->name('nowpayment.callback');
+
+Route::get('/nowpayment/success/{subscription}', [SubscriptionController::class, 'success'])
+    ->name('nowpayment.success');
+
+Route::get('/nowpayment/cancel/{subscription}', [SubscriptionController::class, 'cancel'])
+    ->name('nowpayment.cancel');
+
+Route::get('/payment-initialize-error', function(){
+    return view('payments/payment-initialize-error');
+});
+
 
 
 Route::middleware([

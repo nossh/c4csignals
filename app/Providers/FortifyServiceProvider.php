@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
 use PragmaRX\Countries\Package\Countries;
+use App\Models\Subscription;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -52,5 +53,16 @@ class FortifyServiceProvider extends ServiceProvider
             $countries = Countries::all()->pluck('name.common', 'cca2')->toArray();
             return view('auth.register', compact('countries'));
         });
+
+
+        Fortify::redirects('register', function ($request) {
+            $user = auth()->user();
+            $subscription = Subscription::where('user_id', $user->id)->latest()->first();
+
+            return route('nowpayment.checkout', [
+                'subscription_id' => $subscription->id
+            ]);
+        });
+
     }
 }

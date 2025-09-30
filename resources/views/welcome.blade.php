@@ -198,7 +198,7 @@
 
 
         
-        <div class="bg-gray-50">
+        <div class="bg-gray-50 p-6 lg:p-8">
             <section class="py-16 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-7xl mx-auto">
                     <!-- Section Header -->
@@ -296,9 +296,7 @@
 
         
 
-        <section
-            class="mt-5 flex w-full flex-col place-items-center p-[2%]"
-        >
+        <section class="p-6 lg:p-8 mt-5 flex w-full flex-col place-items-center p-[2%]">
             <h3
                 class="text-3xl font-medium text-primary max-md:text-2xl"
             >
@@ -449,7 +447,7 @@
 
 
 
-        <div class="w-full max-w-7xl mx-auto" id="pricing">
+        <div class="w-full max-w-7xl mx-auto p-6 lg:p-8" id="pricing">
 
             <!-- Pricing Header -->
             <div class="text-center mb-12 md:mb-16">
@@ -680,7 +678,7 @@
 
 
 
-        <div class="text-gray-900 pt-16 pb-24 px-6 w-full bg-gray-50">
+        <div class="text-gray-900 pt-16 pb-24 px-6 w-full bg-gray-50 p-6 lg:p-8">
           <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-6 text-gray-800">Our Impact </h2>
             <p class="text-lg text-gray-600 mb-16">Join hundreds who trust our signals </p>

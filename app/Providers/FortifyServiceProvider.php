@@ -15,6 +15,7 @@ use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
 use PragmaRX\Countries\Package\Countries;
 use App\Models\Subscription;
+use Illuminate\Support\Facades\Session;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -55,14 +56,30 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
 
-        Fortify::redirects('register', function ($request) {
-            $user = auth()->user();
-            $subscription = Subscription::where('user_id', $user->id)->latest()->first();
+        // Custom register redirect
+        // Fortify::redirects('register', function ($request) {
+        //     $user = auth()->user();
+        //     $subscription = Subscription::where('user_id', $user->id)->latest()->first();
 
-            return route('nowpayment.checkout', [
-                'subscription_id' => $subscription->id
-            ]);
-        });
+        //     return route('nowpayment.checkout', [
+        //         'subscription_id' => $subscription->id
+        //     ]);
+        // });
+
+
+        // Custom login redirect
+        // Fortify::redirects('login', function ($request) {
+        //     if (Session::pull('just_registered')) {
+        //         // User just registered → redirect to NowPayments checkout
+        //         $user = auth()->user();
+        //         $subscription = \App\Models\Subscription::where('user_id', $user->id)->latest()->first();
+
+        //         return route('nowpayment.checkout', ['subscription_id' => $subscription->id]);
+        //     }
+
+        //     // Normal login → redirect to dashboard
+        //     return '/dashboard';
+        // });
 
     }
 }

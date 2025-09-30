@@ -70,6 +70,8 @@ class CreateNewUser implements CreatesNewUsers
             'expiring_date' => now()->addMonth()->timestamp, // Example: 1-month expiry
         ]);
 
+        session(['just_registered' => true]);
+
         // Return the user
         return $user;
     }

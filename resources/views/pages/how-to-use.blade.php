@@ -8,7 +8,7 @@
 
 
 
-<div class="container mx-auto px-4 py-12 max-w-4xl">
+<div class="container mx-auto px-4 py-12 max-w-4xl mt-12">
     <!-- Header -->
     <div class="text-center mb-12">
         <h1 class="text-4xl font-bold text-indigo-700 mb-4">How to use our signals</h1>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
+use App\Helpers\FortifyRedirect;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,6 +45,12 @@ Route::get('/nowpayment/success/{subscription}', [SubscriptionController::class,
 
 Route::get('/nowpayment/cancel/{subscription}', [SubscriptionController::class, 'cancel'])
     ->name('nowpayment.cancel');
+
+    Route::get('fortify-redirect', [FortifyRedirect::class, '__invoke'])
+    ->name('fortify-redirect');
+
+    // Route::get('fortify-redirect', [SubscriptionController::class, 'invoke'])
+    // ->name('fortify-redirect');
 
 Route::get('/payment-initialize-error', function(){
     return view('payments/payment-initialize-error');

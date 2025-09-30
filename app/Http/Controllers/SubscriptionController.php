@@ -44,14 +44,31 @@ class SubscriptionController extends Controller
     /**
      * Handle NowPayments IPN callback
      */
-    public function callback(Request $request)
+        public function callback(Request $request)
     {
         $orderId = $request->order_id;
-        $paymentStatus = $request->payment_status; // finished, failed, etc.
+        $paymentStatus = strtolower($request->payment_status); // finished, waiting, failed, etc.
 
-        $subscription = Subscription::find($orderId);
+        $subscription = Subscription::where('id', $orderId)->first();
 
-        if ($subscription && $paymentStatus === 'finished') {
+        if (!$subscription) {
+            return response()->json(['error' => 'Invalid subscription'], 400);
+        }
+
+        // ✅ Optional but recommended: Verify NOWPayments signature
+        $ipnSecret = env('NOWPAYMENTS_IPN_SECRET');
+        $receivedSignature = $request->header('x-nowpayments-sig');
+
+        if ($ipnSecret && $receivedSignature) {
+            $generatedSignature = hash_hmac('sha512', $request->getContent(), $ipnSecret);
+
+            if (!hash_equals($generatedSignature, $receivedSignature)) {
+                return response()->json(['error' => 'Invalid signature'], 401);
+            }
+        }
+
+        // ✅ Update subscription on successful payment
+        if (in_array($paymentStatus, ['finished', 'confirmed'])) {
             $subscription->update([
                 'payment_status' => true,
                 'sub_status' => true,
@@ -66,7 +83,8 @@ class SubscriptionController extends Controller
      */
     public function success($subscriptionId)
     {
-        return view('payments.success');
+        $subscription = Subscription::findOrFail($subscriptionId);
+        return view('payments.success', compact('subscription'));
     }
 
     /**
@@ -74,6 +92,28 @@ class SubscriptionController extends Controller
      */
     public function cancel($subscriptionId)
     {
-        return view('payments.cancel');
+        $subscription = Subscription::findOrFail($subscriptionId);
+        return view('payments.cancel', compact('subscription'));
+    }
+
+    public function invoke()
+    {
+        $user = auth()->user();
+        $subscription = \App\Models\Subscription::where('user_id', $user->id)->latest()->first();
+
+        if ($subscription) {
+            // return redirect('/payment-initialize-error')->with('error', 'Payment could not be initialized.');
+            // return route('nowpayment.checkout', ['subscription_id' => $subscription->id]);
+            // return redirect('nowpayment.checkout', ['subscription_id' => $subscription->id]);
+
+            return redirect()->route('nowpayment.checkout', ['subscription_id' => $subscription->id]);
+
+
+        }
+
+        // return '/dashboard';
+
+        return redirect('/dashboard');
+
     }
 }

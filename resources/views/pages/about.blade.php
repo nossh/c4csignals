@@ -5,7 +5,7 @@
 @section('content')
 
 
-<div class="sm:flex items-center max-w-screen-xl">
+<div class="sm:flex items-center max-w-screen-xl p-6 lg:p-8">
     <div class="sm:w-1/2 p-10">
         <div class="image object-center text-center">
             <img src="https://i.imgur.com/WbQnbas.png">

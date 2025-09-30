@@ -73,7 +73,9 @@ return [
     |
     */
 
-    'home' => '/dashboard',
+    // 'home' => '/dashboard',
+    'home' => '/fortify-redirect',
+    // 'home' => App\Helpers\FortifyRedirect::class,
 
     /*
     |--------------------------------------------------------------------------

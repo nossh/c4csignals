@@ -28,6 +28,8 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+        <link rel="icon" href="{{ asset('assets/logo/c4csignals-logo.png') }}">
+
         <link rel="stylesheet" href="{{ asset('css/index.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
 
@@ -43,11 +45,10 @@
 
         
     </head>
-    <body class=" flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+    <body class=" flex items-center lg:justify-center min-h-screen flex-col">
         
         
-        <header
-            class="lgmax-w-lg:justify-around max-w-lg:px-4 max-w-lg:mr-auto absolute top-0 z-20 flex h-[60px] w-full bg-opacity-0 px-[5%] text-black"
+        <header class="lgmax-w-lg:justify-around max-w-lg:px-4 max-w-lg:mr-auto absolute top-0 z-20 flex h-[60px] w-full bg-opacity-0 px-[5%] text-black mt-2"
         >
             <a class="h-[50px] w-[50px] p-[4px]" href="">
                 <img
@@ -175,8 +176,8 @@
               <div class="space-y-4">
                 <h3 class="text-lg font-semibold">Services</h3>
                 <ul class="space-y-2">
-                  <li><a href="#" class="text-gray-400 hover:text-white transition">Crypto Signals</a></li>
-                  <li><a href="#" class="text-gray-400 hover:text-white transition">Forex Signals</a></li>
+                  <li><a href="{{route('how-to-use-crypto-signals')}}" class="text-gray-400 hover:text-white transition">Crypto Signals</a></li>
+                  <li><a href="{{route('how-to-use-forex-signals')}}" class="text-gray-400 hover:text-white transition">Forex Signals</a></li>
                   <li><a href="#" class="text-gray-400 hover:text-white transition">Affiliate</a></li>
                 </ul>
               </div>
@@ -185,8 +186,8 @@
               <div class="space-y-4">
                 <h3 class="text-lg font-semibold">Contact Us</h3>
                 <address class="not-italic text-gray-400">
-                  <p>123 Business Ave</p>
-                  <p>San Francisco, CA 94107</p>
+                  <p>21 George Street</p>
+                  <p>Edinburgh EH2 2PB</p>
                   <p class="mt-2">Email: <a href="mailto:info@company.com" class="hover:text-white transition">hello@c4csignals.com</a></p>
                   <p>Phone: <a href="tel:+44772777479" class="hover:text-white transition">+44 (772) 177-7479</a></p>
                 </address>

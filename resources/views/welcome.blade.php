@@ -135,7 +135,7 @@
         
 
 
-        <div class="lg:ml-6 lg:col-start-2 lg:max-w-2xl">
+        <div class="lg:ml-6 lg:col-start-2 lg:max-w-2xl p-6 lg:p-8">
             <p class="text-base font-semibold leading-6 text-indigo-500 uppercase">
                 The reason
             </p>

@@ -48,50 +48,89 @@
     <body class=" flex items-center lg:justify-center min-h-screen flex-col">
         
         
-        <header class="lgmax-w-lg:justify-around max-w-lg:px-4 max-w-lg:mr-auto absolute top-0 z-20 flex h-[60px] w-full bg-opacity-0 px-[5%] text-black mt-2"
-        >
-            <a class="h-[50px] w-[50px] p-[4px]" href="">
+        <header class="bg-white shadow-lg py-4 sticky top-0 z-50 rounded-lg">
+          <div class="container mx-auto flex items-center justify-between px-4">
+            <!-- Logo -->
+            <a href="/" class="flex items-center text-primary hover:text-secondary mr-6">
                 <img
                     src="./assets/logo/c4csignals-logo.png"
                     alt="cash4coins signals logo"
-                    class="object h-full w-full"
+                    class="h-8 w-8 mr-2"
                 />
+
+              <span class="text-2xl font-bold">c4csignals</span>
             </a>
-            <div
-                class="collapsible-header animated-collapse max-lg:shadow-md"
-                id="collapsed-header-items"
-            >
-                <div
-                    class="flex h-full w-max gap-5 text-base text-black max-lg:mt-[30px] max-lg:flex-col max-lg:place-items-end max-lg:gap-5 lg:mx-auto lg:place-items-center"
-                >
-                    <a class="header-links" href="/"> Home </a>
-                    <a class="header-links" href="{{route('about')}}"> About us </a>
-                    <a class="header-links" href="/#pricing"> Signals </a>
-                    <a class="header-links" href="{{route('how-to-use')}}"> How to Use </a>
-                    <a class="header-links" href="{{route('faq')}}"> FAQ </a>
-                    @guest
-                    <a class="header-links" href="{{route('login')}}"> Login </a>
-                    @endguest
-                </div>
-                <div
-                    class="mx-4 flex place-items-center gap-[20px] text-base max-md:w-full max-md:flex-col max-md:place-content-center"
-                >
-                    <a
-                        href=""
-                        aria-label="signup"
-                        class="rounded-full bg-primary px-3 py-2 text-white transition-transform duration-[0.3s] hover:translate-x-2"
-                    >
-                        <span>Get started</span>
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
+
+            <!-- Mobile Menu Button (Hidden on larger screens) -->
+            <div class="md:hidden">
+              <button id="menu-toggle"
+                            class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                        </svg>
+                    </button>
             </div>
-            <button
-                class="bi bi-list absolute right-3 top-3 z-50 text-3xl text-black lg:hidden"
-                onclick="toggleHeader()"
-                aria-label="menu"
-                id="collapse-btn"
-            ></button>
+
+            <!-- Desktop Navigation (Hidden on smaller screens) -->
+            <nav class="hidden md:block">
+              <ul class="flex space-x-8">
+                <li><a href="/" class="hover:text-primary transition-colors duration-300">Home</a></li>
+                <li><a href="{{route('about')}}" class="hover:text-primary transition-colors duration-300">About </a></li>
+
+                <!-- Dropdown Menu -->
+
+                <!-- <li class="group relative">
+                  <a href="#" class="hover:text-primary transition-colors duration-300">Services</a>
+                  
+                  <ul
+                    class="absolute left-0 hidden group-hover:block bg-white shadow-md py-2 mt-1 rounded-md w-48 transition-all duration-300">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Service 1</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Service 2</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Service 3</a></li>
+                  </ul>
+                </li> -->
+
+                <li><a href="{{route('how-to-use')}}" class="hover:text-primary transition-colors duration-300">How to Use</a></li>
+                <li><a href="{{route('faq')}}" class="hover:text-primary transition-colors duration-300">FAQ</a></li>
+                
+
+                @guest
+                  <li><a href="{{route('login')}}" class="hover:text-primary transition-colors duration-300">Login</a></li>
+                @endguest
+                <li><a href="/#pricing"
+                    class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-md transition-colors duration-300">Signals</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Mobile Menu (Hidden by default) -->
+          <nav id="mobile-menu"
+            class="hidden md:hidden bg-gray-50 border-t border-gray-200 transition-height duration-300 ease-in-out">
+            <ul class="px-4 py-2">
+              <li><a href="/" class="block py-2 hover:text-primary">Home</a></li>
+              <li><a href="{{route('about')}}" class="block py-2 hover:text-primary">About us</a></li>
+
+              <!-- Mobile Dropdown -->
+              <!-- <li>
+                <a href="#" id="services-dropdown-toggle" class="block py-2 hover:text-primary">Services</a>
+                
+                <ul id="services-dropdown" class="hidden pl-4">
+                  <li><a href="#" class="block py-2 hover:text-primary">Service 1</a></li>
+                  <li><a href="#" class="block py-2 hover:text-primary">Service 2</a></li>
+                  <li><a href="#" class="block py-2 hover:text-primary">Service 3</a></li>
+                </ul>
+              </li> -->
+
+              <li><a href="{{route('how-to-use')}}" class="block py-2 hover:text-primary">How to Use</a></li>
+              <li><a href="{{route('faq')}}" class="block py-2 hover:text-primary">FAQ</a></li>
+              @guest
+                <li><a href="{{route('login')}}" class="block py-2 hover:text-primary">Login</a></li>
+              @endguest
+              
+              <li><a href="/#pricing"
+                  class="block py-2 bg-primary hover:bg-secondary text-white rounded-md text-center transition-colors duration-300">Signals</a></li>
+            </ul>
+          </nav>
         </header>
 
 
@@ -279,6 +318,30 @@
                 icon.classList.toggle('transform');
                 icon.classList.toggle('rotate-180');
             });
+        });
+    </script>
+
+    <!-- Toggle Menu -->
+    <script>
+      // Toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.height = mobileMenu.scrollHeight + "px"; // Set height for transition
+            } else {
+                mobileMenu.style.height = "0";
+            }
+        });
+
+        // Toggle mobile services dropdown
+        const servicesDropdownToggle = document.getElementById('services-dropdown-toggle');
+        const servicesDropdown = document.getElementById('services-dropdown');
+
+        servicesDropdownToggle.addEventListener('click', () => {
+            servicesDropdown.classList.toggle('hidden');
         });
     </script>
     <script src="{{ asset('js/index.js') }}"></script>

@@ -4,8 +4,7 @@
 
 @section('content')
 
-        <section
-            class="relative flex min-h-[100vh] w-full max-w-[100vw] flex-col overflow-hidden max-lg:p-4 max-md:mt-[50px]"
+        <section class="relative flex min-h-[100vh] w-full max-w-[100vw] flex-col overflow-hidden max-lg:p-4 max-md:mt-[50px]"
         >
             <div
                 class="flex h-full min-h-[100vh] w-full flex-col place-content-center gap-6 p-[5%] max-xl:place-items-center"
@@ -14,20 +13,20 @@
                     class="flex flex-col place-content-center items-center"
                 >
                     <div
-                        class="text-center text-6xl font-semibold uppercase leading-[80px] max-lg:text-4xl max-md:leading-snug"
+                        class="text-center text-6xl font-semibold uppercase leading-[80px] max-lg:text-4xl max-md:leading-snug max-md:text-3xl max-md:leading-snug"
                     >
                         <span> Win More Trades. Get Real-Time Crypto & Forex </span>
                         <br />
                         <span class="text-primary"> Signals That Work. </span>
                     </div>
                     <div
-                        class="mt-10 max-w-[450px] p-2 text-center max-lg:max-w-full"
+                        class="mt-10 max-w-[450px] p-2 text-center max-lg:max-w-full max-md:text-base"
                     >
                         Stop guessing. Start trading like a pro. Get highly accurate entry/exit signals delivered directly to your Telegram, powered by real market analysis and years of trading experience.
                     </div>
 
                     <div
-                        class="mt-4 flex place-items-center gap-4 overflow-hidden p-2"
+                        class="mt-6 flex flex-wrap justify-center gap-4 p-2"
                     >
                         <a
                             class="btn transition-transform duration-[0.3s] hover:scale-x-[1.03]"

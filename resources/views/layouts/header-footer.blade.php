@@ -45,10 +45,10 @@
 
         
     </head>
-    <body class=" flex items-center lg:justify-center min-h-screen flex-col">
+    <body class="items-center lg:justify-center min-h-screen flex-col">
         
         
-        <header class="bg-white shadow-lg py-4 sticky top-0 z-50 rounded-lg">
+        <header class="bg-white shadow-lg py-4 sticky top-0 z-50 rounded-b-lg">
           <div class="container mx-auto flex items-center justify-between px-4">
             <!-- Logo -->
             <a href="/" class="flex items-center text-primary hover:text-secondary mr-6">
@@ -145,7 +145,7 @@
 
 
         <footer class="bg-gray-900 text-white pt-12 pb-8">
-          <div class="container mx-auto px-4">
+          <div class="w-full px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
               <!-- Company Info -->
               <div class="space-y-4">

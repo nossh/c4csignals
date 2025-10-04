@@ -475,7 +475,6 @@
                   </div>
                   
                   <a class="planButton" href="{{ route('register', ['plan' => 'plan1', 'cycle' => 'monthly', 'price' => 70]) }}">
-                        <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-primary-600 font-medium transition-colors duration-300 hover:bg-primary-50 mb-6">Get Started</button>
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   
@@ -550,7 +549,6 @@
                   </div>
                   
                   <a class="planButton" href="{{ route('register', ['plan' => 'plan2', 'cycle' => 'monthly', 'price' => 50]) }}">
-                        <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-primary-600 font-medium transition-colors duration-300 hover:bg-primary-50 mb-6">Get Started</button>
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   
@@ -613,7 +611,6 @@
                   </div>
                   
                     <a class="planButton" href="{{ route('register', ['plan' => 'plan3', 'cycle' => 'yearly', 'price' => 100]) }}">
-                        <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-primary-600 font-medium transition-colors duration-300 hover:bg-primary-50 mb-6">Get Started</button>
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   

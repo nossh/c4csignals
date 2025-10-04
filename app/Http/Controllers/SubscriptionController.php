@@ -26,7 +26,7 @@ class SubscriptionController extends Controller
             'price_amount' => $subscription->price,
             'price_currency' => 'usd', // Adjust if needed
             'order_id' => $subscription->id,
-            'order_description' => "Subscription for {$subscription->plan_name}",
+            'order_description' => "{ucfirst($subscription->cycle)} subscription for {$subscription->plan_name}",
             'ipn_callback_url' => route('nowpayment.callback'),
             'success_url' => route('nowpayment.success', $subscription->id),
             'cancel_url' => route('nowpayment.cancel', $subscription->id),
@@ -73,6 +73,10 @@ class SubscriptionController extends Controller
                 'payment_status' => true,
                 'sub_status' => true,
             ]);
+            // Send email to user
+            \Mail::to($subscription->user->email)->send(
+                new \App\Mail\SubscriptionConfirmedMail($subscription)
+            );
         }
 
         return response()->json(['status' => 'ok']);

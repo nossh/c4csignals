@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title') ::-:: c4csignals Crypto and Forex Trading Signals</title>
+        <title>@yield('title') ::-:: C4CSignals Crypto and Forex Trading Signals</title>
 
         <meta name="description" content="C4CSignals delivers accurate crypto and forex trading signals with expert strategies, risk management, and real-time market updates. Profit with reliable entry, TP & SL levels today.">
 
@@ -58,7 +58,7 @@
                     class="h-8 w-8 mr-2"
                 />
 
-              <span class="text-2xl font-bold">c4csignals</span>
+              <span class="text-2xl font-bold">C4CSignals</span>
             </a>
 
             <!-- Mobile Menu Button (Hidden on larger screens) -->
@@ -155,7 +155,7 @@
                   </svg>
                   <span class="ml-2 text-xl font-bold">Company</span>
                 </div>
-                <p class="text-gray-400">The best profitable signals you can trust.</p>
+                <p class="text-gray-400">C4CSignals is the best profitable signals you can trust.</p>
                 <div class="flex space-x-4">
                   <a href="https://t.me/cash4coinssignals" class="text-gray-400 hover:text-white transition" target="_blank">
                       <span class="sr-only">Telegram</span>
@@ -238,11 +238,11 @@
                 @php
                     echo(Date('Y'))
                 @endphp
-              <a href="/">c4csignals</a>. All rights reserved.</p>
+              <a href="/">C4CSignals</a>. All rights reserved.</p>
               <div class="flex space-x-6">
-                <a href="#" class="text-gray-500 hover:text-white text-sm transition">Privacy Policy</a>
-                <a href="#" class="text-gray-500 hover:text-white text-sm transition">Terms of Service</a>
-                <a href="#" class="text-gray-500 hover:text-white text-sm transition">Risk Disclosure</a>
+                <a href="{{ route('policy') }}" class="text-gray-500 hover:text-white text-sm transition">Privacy Policy</a>
+                <a href="{{ route('terms') }}" class="text-gray-500 hover:text-white text-sm transition">Terms of Service</a>
+                <a href="{{ route('risk') }}" class="text-gray-500 hover:text-white text-sm transition">Risk Disclosure</a>
               </div>
             </div>
           </div>

@@ -59,7 +59,7 @@ class CreateNewUser implements CreatesNewUsers
 
 
         // Create the subscription immediately after user creation
-        Subscription::create([
+        $subscription = Subscription::create([
             'id' => Str::uuid(), // or Str::random(10)
             'user_id' => $user->id,
             'plan_name' => $input['plan_name'],
@@ -71,6 +71,9 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         session(['just_registered' => true]);
+
+
+        \Mail::to($user->email)->send(new \App\Mail\WelcomeUserMail($user));
 
         // Return the user
         return $user;

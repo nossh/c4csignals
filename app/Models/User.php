@@ -108,5 +108,19 @@ class User extends Authenticatable
     }
 
 
+    // Custom filament codes
+    public function canAccessFilament(): bool
+    {
+        return true; // every user can access Filament
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->name ?? $this->fname; // fallback to email if name is null
+    }
+
+
+
+
 
 }

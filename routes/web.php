@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
 use App\Helpers\FortifyRedirect;
+use App\Http\Controllers\PagesController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -55,6 +57,13 @@ Route::get('/nowpayment/cancel/{subscription}', [SubscriptionController::class, 
 Route::get('/payment-initialize-error', function(){
     return view('payments/payment-initialize-error');
 });
+
+
+
+Route::get('/policy', [PagesController::class, 'show'])->name('policy')->defaults('page', 'policy');
+Route::get('/terms', [PagesController::class, 'show'])->name('terms')->defaults('page', 'terms');
+Route::get('/risk-disclosure', [PagesController::class, 'show'])->name('risk')->defaults('page', 'risk');
+// Route::get('/{page}', [PagesController::class, 'show'])->whereIn('page', ['policy', 'terms', 'risk-disclosure']);
 
 
 

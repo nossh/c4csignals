@@ -11,9 +11,12 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Str;
 use App\Models\Subscription;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
 
@@ -31,6 +34,7 @@ class User extends Authenticatable
     protected $fillable = [
         'fname',
         'lname',
+        'name',
         'email',
         'tg_id',
         'address',
@@ -109,15 +113,32 @@ class User extends Authenticatable
 
 
     // Custom filament codes
-    public function canAccessFilament(): bool
+    // public function canAccessFilament(): bool
+    // {
+    //     return true; // every user can access Filament
+    // }
+
+
+    public function canAccessPanel(Panel $panel): bool
     {
-        return true; // every user can access Filament
+        // Example 1: Allow all users to access Filament
+        // return true;
+
+        // Example 2 (optional): Restrict only admins
+        // return $this->is_admin === true;
+        // return str_ends_with($this->email, 'nossh@gmail.com') && $this->hasVerifiedEmail();
+        // return str_ends_with($this->email, 'nossh@gmail.com');
+        return str_ends_with($this->email, 'test@gmail.com');
+
     }
 
-    public function getFilamentName(): string
-    {
-        return $this->name ?? $this->fname; // fallback to email if name is null
-    }
+
+    // public function getFilamentName(): string
+    // {
+    //     // return $this->name ?? $this->email; // fallback to email if name is null
+    //     return trim(($this->fname ?? '') . ' ' . ($this->lname ?? '')) ?: ($this->email ?? 'User');
+
+    // }
 
 
 

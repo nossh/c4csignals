@@ -610,7 +610,7 @@
                     <span class="pricing-duration text-gray-500 font-medium ml-2">/ month</span>
                   </div>
                   
-                    <a class="planButton" href="{{ route('register', ['plan' => 'plan3', 'cycle' => 'yearly', 'price' => 100]) }}">
+                    <a class="planButton" href="{{ route('register', ['plan' => 'plan3', 'cycle' => 'monthly', 'price' => 100]) }}">
                         <button class="w-full py-3 px-6 rounded-lg border border-primary-600 text-white font-medium transition-colors duration-300 bg-blue-600 hover:bg-blue-800 mb-6">Get Started</button>
                     </a>
                   
@@ -725,7 +725,10 @@
                   </div>
                 </div>
                 <div class="text-3xl font-extrabold text-gray-800">$70k +</div>
-                <div class="text-gray-500">In Total Subscriber Profits in August</div>
+                <div class="text-gray-500">
+                    In Total Subscriber Profits in {{ \Carbon\Carbon::now()->subMonth()->format('F') }}
+                </div>
+
               </div>
             </div>
           </div>
@@ -735,35 +738,33 @@
 
 
 
-        <section
-            class="flex w-full flex-col place-content-center place-items-center gap-[10%] p-[5%] px-[10%]"
-        >
-            <div
-                class="flex w-full flex-col place-content-center place-items-center gap-3"
-            >
-                <h2 class="text-2xl text-primary max-md:text-xl">
-                    Special Newsletter signup
-                </h2>
-                <h2 class="text-xl max-md:text-lg">
-                    Keep yourself updated
-                </h2>
+        
 
-                <div
-                    class="flex h-[60px] place-items-center gap-2 overflow-hidden p-2"
-                >
-                    <input
-                        type="email"
-                        class="input h-full w-full p-2 outline-none"
-                        placeholder="email"
-                    />
-                    <a
-                        class="btn transition-colors duration-[0.3s]"
-                        href=""
-                    >
-                        Signup
-                    </a>
-                </div>
-            </div>
+
+        <section class="bg-white py-12 text-center">
+          <h2 class="text-3xl font-bold mb-4 text-primary">Don’t Miss the Next Big Pump</h2>
+          <p class=" mb-6">
+            Subscribe to the C4CSignals insider list and be the first to get early alpha.
+          </p>
+
+          <form id="newsletterForm" class="flex flex-col md:flex-row justify-center gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Enter your email address"
+              class="w-full p-3 rounded-md text-gray-900 focus:ring-2 focus:ring-indigo-500"
+            />
+            <button
+              type="submit"
+              class="bg-indigo-600 px-6 text-white py-3 rounded-md font-semibold hover:bg-indigo-700 transition"
+            >
+              Subscribe
+            </button>
+          </form>
+
+          <p id="successMessage" class="hidden mt-4 text-green-400 font-medium"></p>
         </section>
 
 

@@ -97,6 +97,11 @@
                 @guest
                   <li><a href="{{route('login')}}" class="hover:text-primary transition-colors duration-300">Login</a></li>
                 @endguest
+
+                @auth
+                    <!-- Only show when user IS logged in -->
+                    <li><a href="{{route('dashboard')}}" class="hover:text-primary transition-colors duration-300">Dashboard</a></li>                  
+                @endauth
                 <li><a href="/#pricing"
                     class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-md transition-colors duration-300">Signals</a></li>
               </ul>
@@ -150,9 +155,7 @@
               <!-- Company Info -->
               <div class="space-y-4">
                 <div class="flex items-center">
-                  <svg class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
+                    <img src="{{ asset('assets/logo/c4csignals-white-logo.png') }}" class="h-8 w-8">
                   <span class="ml-2 text-xl font-bold">Company</span>
                 </div>
                 <p class="text-gray-400">C4CSignals is the best profitable signals you can trust.</p>
@@ -342,6 +345,34 @@
 
         servicesDropdownToggle.addEventListener('click', () => {
             servicesDropdown.classList.toggle('hidden');
+        });
+    </script>
+
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = document.getElementById('email').value;
+          const successMessage = document.getElementById('successMessage');
+
+          const response = await fetch('{{ route('newsletter.subscribe') }}', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            body: JSON.stringify({ email }),
+          });
+
+          const data = await response.json();
+          if (response.ok) {
+            successMessage.textContent = data.message;
+            successMessage.classList.remove('hidden');
+            document.getElementById('newsletterForm').reset();
+          } else {
+            successMessage.textContent = data.message || 'Something went wrong.';
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('text-red-400');
+          }
         });
     </script>
     <script src="{{ asset('js/index.js') }}"></script>

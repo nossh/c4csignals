@@ -86,7 +86,7 @@
                 $plans = [
                     'plan1' => [
                         'name' => 'Crypto',
-                        'monthly' => 70,
+                        'monthly' => 10,
                         'yearly'  => 299,
                     ],
                     'plan2' => [

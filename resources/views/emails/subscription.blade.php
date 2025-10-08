@@ -21,6 +21,11 @@
 		       Go to Dashboard
 		    </a>
 
+		    <a href="https://t.me/+wJ2t7HFJgCNjYTg0" 
+		       style="display:inline-block; padding:12px 28px; background:#4F44E5; color:#fff; text-decoration:none; border-radius:6px; font-weight:bold;">
+		       Join VIP Channel
+		    </a>
+
 		    <p style="margin-top:40px; font-size:14px; color:#555;">
 		      Thanks for trusting us,<br>
 		      <strong>{{ config('app.name') }}</strong>

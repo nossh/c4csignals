@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
 use App\Helpers\FortifyRedirect;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\NewslettersController;
+
 
 
 Route::get('/', function () {
@@ -57,6 +59,11 @@ Route::get('/nowpayment/cancel/{subscription}', [SubscriptionController::class, 
 Route::get('/payment-initialize-error', function(){
     return view('payments/payment-initialize-error');
 });
+
+
+
+Route::post('/subscribe', [NewslettersController::class, 'store'])->name('newsletter.subscribe');
+
 
 
 
